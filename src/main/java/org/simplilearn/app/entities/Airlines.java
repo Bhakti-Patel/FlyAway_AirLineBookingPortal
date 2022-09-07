@@ -1,5 +1,7 @@
 package org.simplilearn.app.entities;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -15,13 +17,16 @@ public class Airlines {
 	private String departureTime;
 	private String arrivalTime;
 	private int ticketPrice;
+	private Date departureDate;
+	private Date arrivalDate;
 	
 	public Airlines() {
 		
 	}
+	
 
 	public Airlines(int airlineId, String airlineName, String flightNo, String source, String destination,
-			String departureTime, String arrivalTime, int ticketPrice) {
+			String departureTime, String arrivalTime, int ticketPrice, Date departureDate, Date arrivalDate) {
 		super();
 		this.airlineId = airlineId;
 		this.airlineName = airlineName;
@@ -31,7 +36,32 @@ public class Airlines {
 		this.departureTime = departureTime;
 		this.arrivalTime = arrivalTime;
 		this.ticketPrice = ticketPrice;
+		this.departureDate = departureDate;
+		this.arrivalDate = arrivalDate;
 	}
+
+
+	public Date getDepartureDate() {
+		return departureDate;
+	}
+
+	public void setDepartureDate(Date departureDate) {
+		this.departureDate = departureDate;
+	}
+
+	public Date getArrivalDate() {
+		return arrivalDate;
+	}
+
+	public void setArrivalDate(Date arrivalDate) {
+		this.arrivalDate = arrivalDate;
+	}
+
+	public void setArrivalTime(String arrivalTime) {
+		this.arrivalTime = arrivalTime;
+	}
+
+	
 
 	public int getAirlineId() {
 		return airlineId;

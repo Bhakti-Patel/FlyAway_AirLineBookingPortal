@@ -1,12 +1,17 @@
 package org.simplilearn.app.entities;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.hibernate.annotations.GeneratorType;
 
 @Entity
 public class Passenger {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int passengerId;
 	private String firstName;
 	private String lastName;
@@ -14,12 +19,13 @@ public class Passenger {
 	private String emailId;
 	private String mobileNo;
 	private String isAdmin;
+	private int totalSeats;
 	
 	public Passenger() {
 		
 	}
 	public Passenger(int passengerId, String firstName, String lastName, String address, String emailId,
-			String mobileNo, String isAdmin) {
+			String mobileNo, String isAdmin, int totalSeats) {
 		super();
 		this.passengerId = passengerId;
 		this.firstName = firstName;
@@ -28,9 +34,16 @@ public class Passenger {
 		this.emailId = emailId;
 		this.mobileNo = mobileNo;
 		this.isAdmin = isAdmin;
+		this.totalSeats = totalSeats;
 	}
 	
 
+	public int getTotalSeats() {
+		return totalSeats;
+	}
+	public void setTotalSeats(int totalSeats) {
+		this.totalSeats = totalSeats;
+	}
 	public int getPassengerId() {
 		return passengerId;
 	}

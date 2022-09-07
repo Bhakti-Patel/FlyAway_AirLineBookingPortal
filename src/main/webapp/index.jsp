@@ -19,7 +19,7 @@ body, html {
   /* The image used */
   background-image: url("images/flight.jpg");
 
-  min-height: 500px;
+  min-height: 1000px;
 
   /* Center and scale the image nicely */
   background-position: center;
@@ -51,20 +51,17 @@ body, html {
 </head>
 <body>
 <div class="bg-img">
-<h1>Welcome to FlyAway - Airline Booking Portal</h1>
+<h1>Welcome to FlyAway - An Airline Booking Portal</h1>
 
     
 <form action="${pageContext.request.contextPath}/LoginController" method="post" >
-  <div id="buttons" ></div>
-
-  
   
   <div class="btn-group">
   <button type="submit" name="bookFlight" value="Book Flight" >Book Flight</button>
   <button type="submit" name="login" value ="Login">Login</button>
 </div>
     
- </div>
+
  </form>
  
 </body>

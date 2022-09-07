@@ -1,7 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"  pageEncoding="ISO-8859-1"%>
-<%@page import="org.simplilearn.app.entities.User"%>
-<%@ page import =  "java.util.*"%>
-
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,7 +33,7 @@ body, html {
   position: absolute;
   right: 0;
   margin: 20px;
-  max-width: 300px;
+  max-width: 400px;
   padding: 16px;
   background-color: white;
 }
@@ -68,44 +66,34 @@ input[type=text]:focus, input[type=password]:focus {
 .btn:hover {
   opacity: 1;
 }
-select {
-  width: 100%;
-  padding: 16px 20px;
-  border: none;
-  border-radius: 4px;
-  background-color: #f1f1f1;
-}
+
 
 </style>
 
 </head>
 <body>
-
 <div class="bg-img">
-<h1>Welcome to FlyAway - Airline Booking Portal</h1>
-<% User user = (User)request.getAttribute("userDetails");
- System.out.println(user);%>
+
 <form action="${pageContext.request.contextPath}/LoginController" method="post" class="container">
 
-<h1>Login</h1>
-    <label for="username"><b>UserName</b></label>
-    <input type="text" placeholder="Enter UserName" name="username" required>
+<h1>Change Password</h1>
+	<label for="userName"><b>User Name</b></label>
+    <input type="text" placeholder="Enter User Name" name="userName" required>
+    
+    <label for="oldPassword"><b>Old Password</b></label>
+    <input type="password" placeholder="Enter Old Password" name="oldPassword" required>
 
- 	<label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+ 	<label for="newPassword"><b>New Password</b></label>
+    <input type="password" placeholder="Enter New Password" name="newPassword" required>
 
-	<label for="userType"><b>User Type</b></label>
-	 <select name="userType" placeholder="Enter UserType" required>
-		<option value ="user">User</option>
-		<option value="admin">Admin</option>
-		
-	</select>
+	<label for="confirmPassword"><b>Confirm Password</b></label>
+    <input type="password" placeholder="Confirm Password" name="confirmPassword" required>
 		</br>
 		</br>
 		
-    <button type="submit" name="submitLoginForm" class="btn">Login</button>
+    <button type="submit" name="savePassword" class="btn">Save</button>
     <br></br>
-     <button type="submit" name="register" class="btn">Register</button>
+     
     <p style="color: red">${requestScope.msg}</p>
 </form>
  </div>

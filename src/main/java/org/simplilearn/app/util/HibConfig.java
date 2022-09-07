@@ -9,6 +9,7 @@ import org.simplilearn.app.entities.Airlines;
 import org.simplilearn.app.entities.City;
 import org.simplilearn.app.entities.Flight;
 import org.simplilearn.app.entities.Passenger;
+import org.simplilearn.app.entities.TicketSummary;
 import org.simplilearn.app.entities.User;
 
 public class HibConfig {
@@ -20,6 +21,8 @@ public class HibConfig {
 		configuration.addAnnotatedClass(Passenger.class);
 		configuration.addAnnotatedClass(Flight.class);
 		configuration.addAnnotatedClass(Airlines.class);
+		configuration.addAnnotatedClass(TicketSummary.class);
+		
 
 
 
@@ -29,7 +32,7 @@ public class HibConfig {
 		System.out.println("Inside HibConfig...........");
 		Properties properties=new Properties();
 		properties.put(Environment.DRIVER, "com.mysql.cj.jdbc.Driver");
-		properties.put(Environment.URL, "jdbc:mysql://localhost:3306/simplilearndb");
+		properties.put(Environment.URL, "jdbc:mysql://localhost:3306/airlinebookingdb");
 		properties.put(Environment.USER, "root");
 		properties.put(Environment.PASS, "root");
 		properties.put(Environment.SHOW_SQL, true);
