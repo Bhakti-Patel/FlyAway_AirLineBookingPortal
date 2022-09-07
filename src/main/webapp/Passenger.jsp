@@ -32,24 +32,44 @@ input[type=submit]:hover {
   background-color: #45a049;
 }
 
+/* Add styles to the form container */
 .container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  max-width: 500px;
+  padding: 16px;
+  background-color: white;
+}
+.bg-img {
+  /* The image used */
+  background-image: url("images/flight.jpg");
+
+  min-height: 1000px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 </style>
 </head>
 <body>
+<%
+System.out.println("request.getAttribute(airlineId) :-------> "+ request.getAttribute("airlineId")) ;
+pageContext.setAttribute("airlineId", request.getAttribute("airlineId"));
+pageContext.setAttribute("departureDate", request.getAttribute("departureDate"));
+%>
+<div class="bg-img">
 
-<h3>Passenger Details</h3>
-
-<div class="container">
-  <form action="${pageContext.request.contextPath}/PassengerController" method="post">
+  <form action="${pageContext.request.contextPath}/PassengerController" method="post"  class="container">
+  <h3>Passenger Details</h3>
     <label for="fname">First Name</label>
-    <input type="text" id="fname" name="firstname" placeholder="Your First name..">
+    <input type="text" id="fname" name="firstName" placeholder="Your First name..">
 
     <label for="lname">Last Name</label>
-    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+    <input type="text" id="lname" name="lastName" placeholder="Your last name..">
     
      <label for="emailId">Email Id</label>
     <input type="text" id="emailId" name="emailId" placeholder="Your Email Id..">
@@ -60,9 +80,13 @@ input[type=submit]:hover {
     <label for="address">Address</label>
     <input type="text" id="address" name="address" placeholder="Your Address..">
     
-    <input type="submit" value="Submit">
+     <label for="address">No. Of Passengers</label>
+    <input type="text" id="totalSeats" name="totalSeats" placeholder="No. of Passengers........">
+    
+    <input type="hidden" name="airlineId" value ="${airlineId}" >
+    <input type="hidden" name="departureDate" value ="${departureDate}" >
+    <input type="submit" value="Submit" name="submit">
   </form>
 </div>
-
 </body>
 </html>

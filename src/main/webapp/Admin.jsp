@@ -1,5 +1,6 @@
 <%@page import="org.simplilearn.app.entities.Airlines"%>
- <%@ page import =  "java.util.*"%>
+<%@page import="org.simplilearn.app.entities.User"%>
+<%@ page import =  "java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -22,6 +23,18 @@ th, td {
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
+.bg-img {
+  /* The image used */
+  background-image: url("images/flight.jpg");
+
+  min-height: 1000px;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
 </style>
 </head>
 <body>
@@ -29,8 +42,17 @@ tr:nth-child(even) {
 <h2>Admin Dashboard</h2>
 <%List<Airlines> airlinesList=(List<Airlines>)request.getAttribute("airlinesList");
  System.out.println(airlinesList);
- %>
+ User user = (User)request.getAttribute("userDetails");
+ System.out.println(user); %>
 
+<div class="bg-img">
+<form action="${pageContext.request.contextPath}/LoginController" method="post">
+
+<input type="submit" name="changePassword" value="Change Password">
+<br></br>
+
+<input type="submit" name="logout" value="Logout">
+<br></br>
 <table>
   <tr>
     <th>Id</th>
@@ -57,6 +79,7 @@ tr:nth-child(even) {
   <%} %>
  
 </table>
-
+</form>
+</div>
 </body>
 </html>

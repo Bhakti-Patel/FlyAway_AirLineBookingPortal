@@ -1,83 +1,41 @@
 package org.simplilearn.app.entities;
 
-import java.sql.Date;
 import java.sql.Time;
+import java.util.Date;
+
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "flight_details", schema = "airlinebookingdb")
 public class Flight {
 	
+	
 	@Id
-	private int flightId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int bookingId;
 	private int airlineId;
-	private String airlineName;
-	private String fromLocation;
-	private String toLocation;
-	private Date departureDate;
-	private Date arrivalDate;
-	private Time duration;
+	private int passengerId;
 	private int totalSeats;
 	private int ticketPrice;
+	private Date departureDate;
 	
 	public Flight() {
 		
 	}
 
-	public Flight(int flightId, int airlineId, String airlineName, String fromLocation, String toLocation,
-			Time departureTime, Time arrivalTime, Time duration, int totalSeats, int ticketPrice) {
+	public Flight(int bookingId, int airlineId, int passengerId, int totalSeats, int ticketPrice,Date departureDate) {
 		super();
-		this.flightId = flightId;
+		this.bookingId = bookingId;
 		this.airlineId = airlineId;
-		this.airlineName = airlineName;
-		this.fromLocation = fromLocation;
-		this.toLocation = toLocation;
-		this.departureDate = departureDate;
-		this.arrivalDate = arrivalDate;
-		this.duration = duration;
+		this.passengerId = passengerId;
 		this.totalSeats = totalSeats;
 		this.ticketPrice = ticketPrice;
-	}
-
-	public int getFlightId() {
-		return flightId;
-	}
-
-	public void setFlightId(int flightId) {
-		this.flightId = flightId;
-	}
-
-	public int getAirlineId() {
-		return airlineId;
-	}
-
-	public void setAirlineId(int airlineId) {
-		this.airlineId = airlineId;
-	}
-
-	public String getAirlineName() {
-		return airlineName;
-	}
-
-	public void setAirlineName(String airlineName) {
-		this.airlineName = airlineName;
-	}
-
-	public String getFromLocation() {
-		return fromLocation;
-	}
-
-	public void setFromLocation(String fromLocation) {
-		this.fromLocation = fromLocation;
-	}
-
-	public String getToLocation() {
-		return toLocation;
-	}
-
-	public void setToLocation(String toLocation) {
-		this.toLocation = toLocation;
+		this.departureDate = departureDate;
 	}
 
 	public Date getDepartureDate() {
@@ -88,20 +46,28 @@ public class Flight {
 		this.departureDate = departureDate;
 	}
 
-	public Date getArrivalDate() {
-		return arrivalDate;
+	public int getBookingId() {
+		return bookingId;
 	}
 
-	public void setArrivalDate(Date arrivalDate) {
-		this.arrivalDate = arrivalDate;
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
 	}
 
-	public Time getDuration() {
-		return duration;
+	public int getAirlineId() {
+		return airlineId;
 	}
 
-	public void setDuration(Time duration) {
-		this.duration = duration;
+	public void setAirlineId(int airlineId) {
+		this.airlineId = airlineId;
+	}
+
+	public int getPassengerId() {
+		return passengerId;
+	}
+
+	public void setPassengerId(int passengerId) {
+		this.passengerId = passengerId;
 	}
 
 	public int getTotalSeats() {
@@ -119,6 +85,6 @@ public class Flight {
 	public void setTicketPrice(int ticketPrice) {
 		this.ticketPrice = ticketPrice;
 	}
-	
 
+	
 }

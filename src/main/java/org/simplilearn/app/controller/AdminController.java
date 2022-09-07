@@ -22,13 +22,20 @@ public class AdminController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html");
 		
 		AdminDao dao = new AdminDaoImpl();
 		
 		List<Airlines> airlinesList = dao.getAirlinesList();
+		
+		System.out.println("Airlines Details..........");
+		
+		for (int i=0;i<airlinesList.size();i++) {
+			
+			airlinesList.get(i).getDepartureTime();
+		}
 		
 		request.setAttribute("airlinesList", airlinesList);
 		
